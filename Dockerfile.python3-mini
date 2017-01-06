@@ -1,4 +1,4 @@
-FROM continuumio/anaconda:4.2.0
+FROM continuumio/miniconda3:4.1.11
 
 RUN conda install plotly matplotlib pyqt=4.11
 
