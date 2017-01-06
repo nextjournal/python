@@ -1,6 +1,10 @@
 FROM continuumio/miniconda3:4.1.11
 
-RUN conda install plotly matplotlib pyqt=4.11
+RUN apt-get --yes install libgomp1 && apt-get clean
+
+RUN conda config --add channels omnia
+RUN conda install --yes -c omnia/label/pre pyemma
+RUN conda install --yes plotly matplotlib pyqt=4.11
 
 # to reduce startup time, build font cache for matplotlib
 RUN python -c "import matplotlib.pyplot"
