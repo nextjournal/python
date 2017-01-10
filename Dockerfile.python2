@@ -7,6 +7,7 @@ RUN conda install --yes -c omnia/label/pre pyemma
 RUN conda install --yes plotly matplotlib pyqt=4.11
 
 # to reduce startup time, build font cache for matplotlib
-RUN python -c "import matplotlib.pyplot"
+RUN python -c "import matplotlib.pyplot, numpy as np, pickle, pyemma"
 
 COPY ./stream-stdin.py /scripts/stream-stdin.py
+COPY ./pyemma_logging.yml /root/.pyemma/logging.yml
