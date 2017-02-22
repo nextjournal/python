@@ -17,7 +17,7 @@ def __nj_evaluate_expression__(expression):
     else:
       result = eval(compiled_expression, globals())
       if result != None:
-        print result
+        print(result)
       return False
 
 def __nj_is_new_expression_without_indentation__(expression):
