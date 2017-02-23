@@ -12,12 +12,10 @@ def __nj_evaluate_expression__(expression):
         compiled_expression = code.compile_command(expression, '<input>', 'eval')
     except SyntaxError:
         compiled_expression = code.compile_command(expression, '<input>', 'exec')
-    if compiled_expression == None:
+    if compiled_expression is None:
       return True
     else:
-      result = eval(compiled_expression, globals())
-      if result != None:
-        print(result)
+      eval(compiled_expression, globals())
       return False
 
 def __nj_is_new_expression_without_indentation__(expression):
@@ -26,8 +24,8 @@ def __nj_is_new_expression_without_indentation__(expression):
 __nj_pyeval_expression__ = ""
 __nj_pyeval_is_incomplete_expression__ = False
 for __nj_pyeval_current_line__ in fileinput.input():
-    if __nj_pyeval_is_incomplete_expression__ == True:
-      if __nj_is_new_expression_without_indentation__(__nj_pyeval_current_line__) == True:
+    if __nj_pyeval_is_incomplete_expression__ is True:
+      if __nj_is_new_expression_without_indentation__(__nj_pyeval_current_line__) is True:
         __nj_evaluate_expression__(__nj_pyeval_expression__)
         __nj_pyeval_expression__ = __nj_pyeval_current_line__
         __nj_pyeval_is_incomplete_expression__ = __nj_evaluate_expression__(__nj_pyeval_expression__)
