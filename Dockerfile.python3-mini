@@ -4,7 +4,7 @@ RUN apt-get --yes install libgomp1 && apt-get clean
 
 RUN conda config --add channels omnia
 RUN conda install --yes -c omnia/label/pre pyemma
-RUN conda install --yes plotly matplotlib pyqt=4.11
+RUN conda install --yes plotly matplotlib pyqt=4.11 seaborn
 RUN pip install --upgrade pip
 RUN pip install datapackage
 
