@@ -9,6 +9,7 @@ RUN conda install --yes -c omnia/label/pre pyemma
 RUN conda install --yes -c liulab cufflinks
 RUN conda install --yes -c qttesting libxcb
 RUN conda install --yes seaborn matplotlib plotly
+RUN conda install --yes -c fabianrost pandas-datareader
 RUN pip install --upgrade pip
 RUN pip install datapackage
 
