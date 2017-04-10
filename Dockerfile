@@ -12,8 +12,8 @@ RUN conda install --yes seaborn
 RUN pip install --upgrade pip
 RUN pip install datapackage cufflinks plotly
 
-# to reduce startup time, build font cache for matplotlib
-RUN python -c "import numpy as np, pickle, pyemma; import matplotlib; matplotlib.use('webagg'); import matplotlib.pyplot"
+# use 'Agg' backend to avoid error: https://github.com/ContinuumIO/anaconda-issues/issues/1215
+RUN python -c "import matplotlib as mpl; mpl.use('Agg'); import matplotlib.pyplot; import numpy as np, pickle, pyemma"
 
 COPY ./stream-stdin.py /scripts/stream-stdin.py
 COPY ./pyemma_logging.yml /root/.pyemma/logging.yml
