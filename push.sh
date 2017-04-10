@@ -9,7 +9,3 @@ git tag $TAG
 echo "Pushing to Github, which triggers a Docker Hub automated build for nextjournal/python:$TAG"
 git push --tags
 git push
-
-docker tag nextjournal/python:$TAG $GCR_IMAGE
-echo "Pushing to $GCR_IMAGE..."
-docker push $GCR_IMAGE
