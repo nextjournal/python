@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 #
-docker build -t nextjournal/python3 .
+TAG=$(git rev-parse --abbrev-ref HEAD)-$(git rev-parse --short HEAD)
+docker pull nextjournal/python:latest
+docker build --cache-from nextjournal/python:latest -t nextjournal/python:latest .
