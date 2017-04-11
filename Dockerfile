@@ -1,7 +1,7 @@
 FROM continuumio/anaconda3:4.3.1
 
 # libgl1-mesa-glx fixes matplotlib qt5 support
-RUN apt-get --yes install libgomp1 libgl1-mesa-glx && apt-get clean
+RUN apt-get --yes --no-install-recommends install libgomp1 libgl1-mesa-glx && apt-get clean 
 
 RUN conda config --add channels omnia && \
     conda install --yes matplotlib=1.5.3 seaborn && \
