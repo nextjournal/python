@@ -7,3 +7,6 @@ RUN python -c "import matplotlib"
 
 COPY ./stream-stdin.py /scripts/stream-stdin.py
 COPY ./pyemma_logging.yml /root/.pyemma/logging.yml
+
+RUN mkdir -p /wrappers
+COPY shell.sh /wrappers/shell.sh
